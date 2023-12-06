@@ -1,0 +1,9 @@
+FROM nginx:alpine
+
+# Create work directory
+WORKDIR /app
+
+# Bundle app src
+COPY . /usr/share/nginx/html
+
+EXPOSE 3000

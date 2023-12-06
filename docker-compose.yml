@@ -1,0 +1,15 @@
+services:
+
+  does-not-exist-fe:
+    build:
+      context: ./client/.
+    container_name: does-not-exist-fe
+    ports:
+      - 3300:80
+
+  does-not-exist-be:
+    build:
+      context: ./server/.
+    container_name: does-not-exist-be
+    ports:
+      - 8080:8080

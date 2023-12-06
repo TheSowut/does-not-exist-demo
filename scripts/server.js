@@ -7,9 +7,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = 3000;
+const port = 8080;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+app.get("/", (_, res) => {
+  res.json({ message: `App is running on docker container.`});
+});
 
 app.get("/image", async (req, res) => {
   console.log("Making a request to thispersondoesnotexist");
@@ -34,5 +38,5 @@ app.get("/sample", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("Listening on " + port);
+  console.log(`Listening on localhost:${port}`);
 });

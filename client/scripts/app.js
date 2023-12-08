@@ -1,14 +1,20 @@
+const DEFAULT_BUTTON_TEXT = 'Load image';
+const LOADING_BUTTON_TEXT = 'Loading...';
+
 window.addEventListener("load", async () => {
+    const btnLoadImage = document.querySelector('#button-load-image');
+    const imagePerson = document.querySelector("#image-person")
     document
-        .querySelector("#loadImageAction")
+        .querySelector("#button-load-image")
         .addEventListener("click", async () => {
             console.log("Action initiated");
-            const localImg = "http://localhost:8080/sample";
+            btnLoadImage.innerHTML = LOADING_BUTTON_TEXT;
             const doesNotExistUrl = "http://localhost:8080/image";
 
             const imgURL = await generateNewImage(doesNotExistUrl);
-            document.querySelector("#image-person").src = imgURL;
+            imagePerson.src = imgURL;
             console.log("Image set.");
+            btnLoadImage.innerHTML = DEFAULT_BUTTON_TEXT;
 
             setRandomGradientBackground();
         });

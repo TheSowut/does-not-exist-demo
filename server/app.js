@@ -7,7 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (_, res) => {
-    res.json({ message: `App is running on a docker container.` });
+    res.json({
+        message: `App is running on a docker container.`,
+        imageUrl: 'http://www.localhost:8080/image'
+    });
 });
 
 app.get("/image", async (_, res) => {

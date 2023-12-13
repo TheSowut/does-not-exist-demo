@@ -1,5 +1,7 @@
 const DEFAULT_BUTTON_TEXT = 'Load image';
 const LOADING_BUTTON_TEXT = 'Loading...';
+const SERVER_PORT = 8080;
+const BACKEND_OFFLINE_MSG = `Perhaps the server isn\'t running on port ${SERVER_PORT}?`;
 
 window.addEventListener("load", async () => {
     const btnLoadImage = document.querySelector('#button-load-image');
@@ -7,16 +9,19 @@ window.addEventListener("load", async () => {
     document
         .querySelector("#button-load-image")
         .addEventListener("click", async () => {
-            console.log("Action initiated");
-            btnLoadImage.innerHTML = LOADING_BUTTON_TEXT;
-            const doesNotExistUrl = "http://localhost:8080/image";
+            try {
+                const doesNotExistUrl = `http://localhost:${SERVER_PORT}/image`;
+                const imgURL = await generateNewImage(doesNotExistUrl);
+                console.log("Action initiated");
+                btnLoadImage.innerHTML = LOADING_BUTTON_TEXT;
+                imagePerson.src = imgURL;
+                console.log("Image set.");
+                btnLoadImage.innerHTML = DEFAULT_BUTTON_TEXT;
 
-            const imgURL = await generateNewImage(doesNotExistUrl);
-            imagePerson.src = imgURL;
-            console.log("Image set.");
-            btnLoadImage.innerHTML = DEFAULT_BUTTON_TEXT;
-
-            setRandomGradientBackground();
+                setRandomGradientBackground();
+            } catch (e) {
+                alert(`${e} \n${BACKEND_OFFLINE_MSG}`);
+            }
         });
 });
 

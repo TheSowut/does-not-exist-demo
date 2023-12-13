@@ -1,12 +1,12 @@
 services:
 
-  does-not-exist-fe:
+  client:
     build:
       context: ./client/.
     ports:
       - 3300:80
 
-  does-not-exist-be:
+  server:
     build:
       context: ./server/.
     ports:

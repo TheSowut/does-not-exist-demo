@@ -29,4 +29,3 @@ jobs:
                     push: true
                     tags: |
                         ${{ secrets.DOCKERHUB_USERNAME }}/does-not-exist-fe:latest
-                        ${{ secrets.DOCKERHUB_USERNAME }}/does-not-exist-fe:{{ github.run_number }}

@@ -2,9 +2,11 @@
 Minimalistic app which generates an image of a person who does not exist. </br>
 The sole purpose of this app is to solidify my docker & github actions skills.
 
-## 🛠️ instructions 
+## 🛠️ instructions
 1) Navigate to the root directory of the project
 2) Run `docker compose up`
+3) Navigate to `localhost:3300`
+4) Once finished, run `docker compose down` to delete the containers
 
 ## 🖼️ demo
 <main style='display: flex; flex-direction: row; width: 50%; justify-content: space-between;'>

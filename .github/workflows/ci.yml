@@ -1,4 +1,4 @@
-name: build-client
+name: build
 
 on:
     push:

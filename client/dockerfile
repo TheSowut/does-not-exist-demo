@@ -1,9 +1,9 @@
 FROM nginx:alpine
 
-# Create work directory
-WORKDIR /app
+# Change active directory to nginx/html
+WORKDIR /usr/share/nginx/html
 
 # Bundle app src
-COPY . /usr/share/nginx/html
+COPY . .
 
 EXPOSE 3300

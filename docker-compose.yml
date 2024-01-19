@@ -5,6 +5,11 @@ services:
       context: ./client/.
     ports:
       - 3300:80
+    develop:
+      watch:
+        - action: sync
+          path: ./client
+          target: /usr/share/nginx/html
 
   server:
     build:
